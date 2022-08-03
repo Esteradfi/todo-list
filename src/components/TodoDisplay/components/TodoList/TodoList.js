@@ -60,14 +60,16 @@ function TodoList({ todo, setTodo }) {
     }
 
     function createTodo() {
-        setTodo(
-            [...todo, {
-                id: uuidv4(),
-                title: value,
-                status: "wait",
-            }]
-        )
-        setValue('');
+        if (value !== '') {
+            setTodo(
+                [...todo, {
+                    id: uuidv4(),
+                    title: value,
+                    status: "wait",
+                }]
+            )
+            setValue('');
+        }
     }
 
     return (
@@ -75,12 +77,13 @@ function TodoList({ todo, setTodo }) {
             {
                 todo.map( item => (
                     <div key={item.id}>
-                        {
+                        <div className="ListItem">{item.title}</div>
+                        {/*}  {
                             edit === item.id ?
                                 <div>
                                     <input value={editValue} onChange={ (e) => setEditValue(e.target.value) } />
                                 </div> :
-                                <div>{ item.title }</div>
+                                <div></div>
                         }
                         {
                             edit === item.id ?
@@ -94,13 +97,13 @@ function TodoList({ todo, setTodo }) {
                                 <button onClick={() => doTodo(item.id)}>Начать делать</button>
                                 <button onClick={() => completeTodo(item.id)}>Выполнено</button>
                                 </div>
-                        }
+                        } */}
                     </div>
                 ))
             }
             <div>
-            <input placeholder={"Введите задачу"} value={value} onChange={ (e) => setValue(e.target.value) } />
-            <button onClick={createTodo}>Добавить</button>
+            <input className="CreateTodo-input" placeholder={"Введите задачу"} value={value} onChange={ (e) => setValue(e.target.value) } />
+            <button className="CreateTodo-button" onClick={createTodo}>Добавить</button>
             </div>
         </div>
     )

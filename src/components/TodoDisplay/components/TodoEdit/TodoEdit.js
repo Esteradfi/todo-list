@@ -1,6 +1,12 @@
-function TodoEdit() {
+import {useState} from "react";
+import "./TodoEdit.scss";
+
+function TodoEdit({ todo, setTodo }) {
+
     return (
-        <div>TodoEdit</div>
+        <div className="TodoEdit">
+            <div className="TodoName">Задача:</div>
+        </div>
     )
 }
 

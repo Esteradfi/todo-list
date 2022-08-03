@@ -8,25 +8,42 @@ function TodoDisplay() {
     const [todo, setTodo] = useState([
         {
             id: 1,
-            title: "First TODO",
+            title: "Выполнить тестовое задание",
             status: "wait",
         },
         {
             id: 2,
-            title: "Second TODO",
+            title: "Отравить тестовое задание",
             status: "in process",
         },
         {
             id: 3,
-            title: "Third TODO",
+            title: "Ждать обратной связи",
+            status: "complete",
+        },
+        {
+            id: 4,
+            title: "Поесть",
+            status: "complete",
+        },
+        {
+            id: 5,
+            title: "Лечь спать",
+            status: "complete",
+        },
+        {
+            id: 6,
+            title: "Получить обратную связь",
             status: "complete",
         },
     ]);
 
+    console.log(todo);
+
     return (
         <div className="TodoDisplay">
             <TodoList todo={todo} setTodo={setTodo} />
-            <TodoEdit />
+            <TodoEdit todo={todo} setTodo={setTodo} />
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import {useState} from "react";
 import TodoList from "./components/TodoList/TodoList";
 import TodoEdit from "./components/TodoEdit/TodoEdit";
+import "./TodoDisplay.scss";
 
 function TodoDisplay() {
 
@@ -23,7 +24,7 @@ function TodoDisplay() {
     ]);
 
     return (
-        <div>
+        <div className="TodoDisplay">
             <TodoList todo={todo} setTodo={setTodo} />
             <TodoEdit />
         </div>

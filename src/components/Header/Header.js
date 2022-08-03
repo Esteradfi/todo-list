@@ -1,6 +1,8 @@
+import "./Header.scss";
+
 function Header() {
     return (
-        <div>TODO List</div>
+        <div className="Header">TODO List</div>
     )
 }
 

@@ -1,5 +1,6 @@
 import {useState} from "react";
 import { v4 as uuidv4 } from "uuid";
+import "./TodoList.scss";
 
 function TodoList({ todo, setTodo }) {
 
@@ -70,7 +71,7 @@ function TodoList({ todo, setTodo }) {
     }
 
     return (
-        <div>
+        <div className="TodoList">
             {
                 todo.map( item => (
                     <div key={item.id}>

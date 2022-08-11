@@ -5,59 +5,6 @@ import "./TodoList.scss";
 function TodoList({ todo, setTodo }) {
 
     const [value, setValue] = useState('');
-    const [edit, setEdit] = useState(null);
-    const [editValue, setEditValue] = useState('');
-
-    function deleteTodo(id) {
-        let newTodo = [...todo].filter(item => item.id !== id);
-        setTodo(newTodo);
-    }
-
-    function editTodo(id, title) {
-        setEdit(id);
-        setEditValue(title);
-    }
-
-    function saveTodo(id) {
-        let newTodo = [...todo].map( item => {
-            if (item.id === id) {
-                item.title = editValue;
-            }
-            return item;
-        })
-        setTodo(newTodo);
-        setEdit(null);
-    }
-
-    function completeTodo(id) {
-        let newTodo = [...todo].filter(item => {
-            if(item.id === id) {
-                item.status = "complete";
-            }
-            return item;
-        });
-        setTodo(newTodo);
-    }
-
-    function doTodo(id) {
-        let newTodo = [...todo].filter(item => {
-            if(item.id === id) {
-                item.status = "in process";
-            }
-            return item;
-        });
-        setTodo(newTodo);
-    }
-
-    function waitTodo(id) {
-        let newTodo = [...todo].filter(item => {
-            if(item.id === id) {
-                item.status = "wait";
-            }
-            return item;
-        });
-        setTodo(newTodo);
-    }
 
     function createTodo() {
         if (value !== '') {
@@ -66,38 +13,45 @@ function TodoList({ todo, setTodo }) {
                     id: uuidv4(),
                     title: value,
                     status: "wait",
+                    selected: "no"
                 }]
             )
             setValue('');
         }
-    }
+    } // функция, создающая новую задачу
+
+    function selectTodo(id) {
+
+        for (let i = 0; i < todo.length; i++) {
+            if (todo[i].selected === "yes") {
+                todo[i].selected = "no";
+                break;
+            }
+        }
+
+        let newTodo = [...todo].filter(item => {
+            if(item.id === id) {
+                item.selected = "yes";
+            }
+            return item;
+        });
+
+        setTodo(newTodo);
+    } // фунцкия, делающая задачу выбранной
 
     return (
         <div className="TodoList">
             {
                 todo.map( item => (
                     <div key={item.id}>
-                        <div className="ListItem">{item.title}</div>
-                        {/*}  {
-                            edit === item.id ?
-                                <div>
-                                    <input value={editValue} onChange={ (e) => setEditValue(e.target.value) } />
-                                </div> :
-                                <div></div>
-                        }
-                        {
-                            edit === item.id ?
-                                <div>
-                                    <button onClick={() => saveTodo(item.id)}>Сохранить</button>
-                                </div> :
-                                <div>
-                                <button onClick={() => deleteTodo(item.id)}>Удалить</button>
-                                <button onClick={() => editTodo(item.id, item.title)}>Редактировать</button>
-                                <button onClick={() => waitTodo(item.id)}>Ждёт выполнения</button>
-                                <button onClick={() => doTodo(item.id)}>Начать делать</button>
-                                <button onClick={() => completeTodo(item.id)}>Выполнено</button>
-                                </div>
-                        } */}
+                        <div className="ListItem"
+                             onClick={() => selectTodo(item.id)}
+                             style={ {color: (item.status === "in process") ? 'blue' :
+                                     (item.status === "complete") ? 'green' :
+                                     'black'} }
+                        > {/* Реализация вывода списка задач и цветовой индикации состояния прогресса выполнения задач */}
+                            {item.title}
+                        </div>
                     </div>
                 ))
             }

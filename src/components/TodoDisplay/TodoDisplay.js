@@ -9,36 +9,40 @@ function TodoDisplay() {
         {
             id: 1,
             title: "Выполнить тестовое задание",
-            status: "wait",
+            status: "complete",
+            selected: "no",
         },
         {
             id: 2,
             title: "Отравить тестовое задание",
             status: "in process",
+            selected: "no",
         },
         {
             id: 3,
             title: "Ждать обратной связи",
-            status: "complete",
+            status: "wait",
+            selected: "no",
         },
         {
             id: 4,
             title: "Поесть",
-            status: "complete",
+            status: "wait",
+            selected: "no",
         },
         {
             id: 5,
             title: "Лечь спать",
-            status: "complete",
+            status: "wait",
+            selected: "no",
         },
         {
             id: 6,
             title: "Получить обратную связь",
-            status: "complete",
+            status: "wait",
+            selected: "yes",
         },
     ]);
-
-    console.log(todo);
 
     return (
         <div className="TodoDisplay">

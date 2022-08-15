@@ -2,15 +2,7 @@
   border-right: #000000 2px solid;
   max-width: 188px;
   padding: 0 5px;
-  .list-item{
-    cursor: pointer;
-    margin: 5px 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 1rem;
-  }
-  .input-create {
+  input {
     border: none;
     height: 20px;
     width: 100%;
@@ -21,6 +13,14 @@
     &:focus-visible {
       outline: none;
     }
+  }
+  .list-item{
+    cursor: pointer;
+    margin: 5px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1rem;
   }
   .button-create {
     cursor: pointer;

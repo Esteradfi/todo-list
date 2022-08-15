@@ -4,6 +4,7 @@ import "./TodoList.scss";
 function TodoList({ todo, setTodo }) {
 
     const [value, setValue] = useState('');
+    const [result, setResult] = useState('');
 
     function createTodo() {
         if (value !== '') {
@@ -38,10 +39,18 @@ function TodoList({ todo, setTodo }) {
         setTodo(newTodo);
     } // фунцкия, делающая задачу выбранной
 
+    const filteredTodo = todo.filter(item => {
+        return item.title.toLowerCase().includes(result.toLowerCase())
+    }) // Отфильтрованный в соответствии с поиском список задач
+
     return (
         <div className="TodoList">
+            <div>
+                <input type="text" placeholder="Поиск" className="input-search"
+                       onChange={(event) => setResult(event.target.value)}/>
+            </div>
             {
-                todo.map( item => (
+                filteredTodo.map( item => (
                     <div key={item.id}>
                         <div className="list-item"
                              onClick={() => selectTodo(item.id)}

@@ -88,7 +88,7 @@ function TodoEdit({ todo, setTodo }) {
                                     <button className="button button-edit" onClick={() => editTodo(item.id, item.title)}>Редактировать</button>
                                     <div className="buttons-status">
                                         <button className="button button-wait" onClick={() => waitTodo(item.id)}>Ждёт выполнения</button>
-                                        <button className="button button-do" onClick={() => doTodo(item.id)}>Начать делать</button>
+                                        <button className="button button-do" onClick={() => doTodo(item.id)}>В процессе</button>
                                         <button className="button button-complete" onClick={() => completeTodo(item.id)}>Выполнено</button>
                                     </div>
                                     <button className="button button-delete" onClick={() => deleteTodo(item.id)}>Удалить</button>

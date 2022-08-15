@@ -16,7 +16,7 @@ function App() {
             id: 2,
             title: "Отравить тестовое задание",
             status: "in process",
-            selected: "no",
+            selected: "yes",
         },
         {
             id: 3,
@@ -40,7 +40,7 @@ function App() {
             id: 6,
             title: "Получить обратную связь",
             status: "wait",
-            selected: "yes",
+            selected: "no",
         },
     ]); // Начальные задачи в списке
 

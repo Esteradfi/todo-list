@@ -1,5 +1,4 @@
 import {useState} from "react";
-import { v4 as uuidv4 } from "uuid"; // используется для генерации уникальных id при создании новых задач
 import "./TodoList.scss";
 
 function TodoList({ todo, setTodo }) {
@@ -10,7 +9,7 @@ function TodoList({ todo, setTodo }) {
         if (value !== '') {
             setTodo(
                 [...todo, {
-                    id: uuidv4(),
+                    id: todo.length + 1,
                     title: value,
                     status: "wait",
                     selected: "no"

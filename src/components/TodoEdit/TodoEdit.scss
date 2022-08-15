@@ -2,10 +2,11 @@
   width: 100%;
   text-align: center;
   min-height: 100px;
-  .TodoName {
+  .todo-name {
     padding: 5px;
     border-bottom: black 2px solid;
     min-height: 21px;
+    white-space: pre-line;
   }
   .input-edit {
     width: 97%;
@@ -28,7 +29,6 @@
     background-color: transparent;
     transition: 0.3s ease;
     &:hover {
-      transition: 0.3s ease;
       background-color: white;
     }
   }
@@ -93,6 +93,16 @@
         transition: 0.3s ease;
         background-color: red;
       }
+    }
+  }
+}
+@media screen and (max-width: 799px) {
+  .buttons-status {
+    display: flex;
+    flex-direction: column;
+    .button {
+      min-width: 100%;
+      margin: 5px 2px;
     }
   }
 }

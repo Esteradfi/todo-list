@@ -5,4 +5,14 @@
   margin-right: auto;
   background-color: #E3E2DF;
   padding-bottom: 32px;
+  .header {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+  }
+  .display {
+    border: #000000 2px solid;
+    border-radius: 10px;
+    display: flex;
+    margin: 0 2rem;
+  }
 }

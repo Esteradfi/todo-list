@@ -2,7 +2,15 @@
   border-right: #000000 2px solid;
   max-width: 188px;
   padding: 0 5px;
-  .CreateTodo-input {
+  .list-item{
+    cursor: pointer;
+    margin: 5px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1rem;
+  }
+  .input-create {
     border: none;
     height: 20px;
     width: 100%;
@@ -14,11 +22,11 @@
       outline: none;
     }
   }
-  .CreateTodo-button {
+  .button-create {
     cursor: pointer;
     width: 100%;
     border: none;
-    font-size: 16px;
+    font-size: 1rem;
     background-color: transparent;
     transition: 0.3s ease;
     border-radius: 10px;
@@ -35,16 +43,8 @@
   }
 }
 
-.ListItem{
-  cursor: pointer;
-  margin: 5px 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: 0.3s ease;
-  font-size: 16px;
-  &:hover {
-    color: saddlebrown;
-    transition: 0.3s ease;
+@media screen and (max-width: 450px) {
+  .TodoList {
+    max-width: 90px;
   }
 }

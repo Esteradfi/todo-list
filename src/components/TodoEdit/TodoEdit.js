@@ -59,7 +59,7 @@ function TodoEdit({ todo, setTodo }) {
 
     return (
         <div className="TodoEdit">
-            <div className="TodoName"> {/* Вывод имени задачи в компоненте TodoEdit */}
+            <div className="todo-name"> {/* Вывод имени задачи в компоненте TodoEdit */}
                 {
                     todo.filter( item => item.selected === 'yes' ).map( item => (
                         <div>Задача: {item.title}</div>
@@ -76,6 +76,9 @@ function TodoEdit({ todo, setTodo }) {
                                 </div> :
                                 null
                         }
+                          {/* Если юзер нажимает на кнопку редактирования, то все остальные кнопки исчезают,
+                              а на их месте поялвяются input для редактирования и кнопка сохранения
+                              нового названия задачи */}
                         {
                             edit === item.id ?
                                 <div>

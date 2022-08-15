@@ -1,5 +1,5 @@
 import {useState} from "react";
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from "uuid"; // используется для генерации уникальных id при создании новых задач
 import "./TodoList.scss";
 
 function TodoList({ todo, setTodo }) {
@@ -44,7 +44,7 @@ function TodoList({ todo, setTodo }) {
             {
                 todo.map( item => (
                     <div key={item.id}>
-                        <div className="ListItem"
+                        <div className="list-item"
                              onClick={() => selectTodo(item.id)}
                              style={ {color: (item.status === "in process") ? 'blue' :
                                      (item.status === "complete") ? 'green' :
@@ -56,9 +56,9 @@ function TodoList({ todo, setTodo }) {
                 ))
             }
             <div>
-            <input className="CreateTodo-input" placeholder={"Введите задачу"} value={value} onChange={ (e) => setValue(e.target.value) } />
-            <button className="CreateTodo-button" onClick={createTodo}>Добавить</button>
-            </div>
+            <input className="input-create" placeholder={"Введите задачу"} value={value} onChange={ (e) => setValue(e.target.value) } />
+            <button className="button-create" onClick={createTodo}>Добавить</button>
+            </div> {/* Реализация добавления новых задач в список */}
         </div>
     )
 }
